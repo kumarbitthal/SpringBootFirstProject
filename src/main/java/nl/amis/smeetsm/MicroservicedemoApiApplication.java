@@ -1,14 +1,12 @@
-package nl.amis.smeetsm.springboot;
+package nl.amis.smeetsm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroserviceDemo {
+public class MicroservicedemoApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceDemo.class, args);
-
+		SpringApplication.run(MicroservicedemoApiApplication.class, args);
 	}
-
 }
