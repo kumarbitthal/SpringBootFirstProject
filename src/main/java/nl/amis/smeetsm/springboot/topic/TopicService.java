@@ -14,6 +14,10 @@ public class TopicService {
 			new Topic("java","core Java","JavaDescription"),
 			new Topic("javascript","Javascript","JavascriptDescription")));
 
+	public String getHomePage(){
+		return "Welcome to Spring !";
+	}
+	
 	public List<Topic> getAllTopics() {
 		return topics;
 	}
