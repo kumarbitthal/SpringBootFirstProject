@@ -1,6 +1,11 @@
 package nl.amis.smeetsm.springboot.topic;
 
 public class Topic {
+	
+	private String id;
+	private String name;
+	private String description;
+	
 	public Topic(String id, String name, String description) {
 		super();
 		this.id = id;
@@ -9,7 +14,6 @@ public class Topic {
 	}
 	
 	public Topic() {
-		
 	}
 	
 	public String getId() {
@@ -30,7 +34,4 @@ public class Topic {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	private String id;
-	private String name;
-	private String description;
 }
