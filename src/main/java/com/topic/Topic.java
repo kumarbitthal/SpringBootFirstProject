@@ -1,25 +1,29 @@
-package nl.amis.smeetsm.springboot.topic;
+package com.topic;
+
+import javax.validation.constraints.Size;
 
 public class Topic {
 	
-	private String id;
+	private Integer id;
+	
+	@Size(min=2, max=44)
 	private String name;
 	private String description;
+
+	public Topic() {
+	}
 	
-	public Topic(String id, String name, String description) {
+	public Topic(Integer id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.description = description;
 	}
 	
-	public Topic() {
-	}
-	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
