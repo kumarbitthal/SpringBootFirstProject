@@ -3,11 +3,13 @@ package com.topic;
 import java.net.URI;
 import java.util.List;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,8 +37,12 @@ public class TopicController {
 	}
 	
 	@RequestMapping("/topics/{id}")
-	public Topic getTopic(@PathVariable String id) {
-		return topicService.getTopic(Integer.parseInt(id));
+	public Resource<Topic> getTopic(@PathVariable String id) {
+		Topic topic = topicService.getTopic(Integer.parseInt(id));
+		Resource<Topic> resource = new Resource<Topic>(topic);
+		ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).getAllTopics());
+		resource.add(linkTo.withRel("all-topics"));
+		return resource;
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE,value="/topics/{id}")
