@@ -1,12 +1,23 @@
-package com.topic;
+package com.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description="All details about Topics..")
+@Entity
 public class Topic {
 	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	@Size(min=2, max=44)
+	@ApiModelProperty(notes="Topic name should be of min 2 and max 44 characters")
 	private String name;
 	private String description;
 

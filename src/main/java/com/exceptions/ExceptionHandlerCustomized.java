@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.topic.UserNotFoundException;
-
 @RestController
 @ControllerAdvice
 public class ExceptionHandlerCustomized extends ResponseEntityExceptionHandler {
@@ -24,7 +22,7 @@ public class ExceptionHandlerCustomized extends ResponseEntityExceptionHandler {
 		return new ResponseEntity(gexc, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@ExceptionHandler(UserNotFoundException.class)
+	@ExceptionHandler(TopicNotFoundException.class)
 	public final ResponseEntity<Object> handleUserNotFoundException(Exception ex, WebRequest request) {
 			GenericException gexc = new GenericException(ex.getMessage(), new Date(), request.getDescription(false));
 		return new ResponseEntity(gexc, HttpStatus.NOT_FOUND);
